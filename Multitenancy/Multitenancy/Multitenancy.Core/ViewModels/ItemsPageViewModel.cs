@@ -69,7 +69,7 @@ namespace Multitenancy.Core.ViewModels
 
         private async void OnAddItem(object obj)
         {
-            //await NavigationService.GoToAsync("NewItemPage");
+            await NavigationService.NavigateAsync("NavigationPage/NewItemPage");
         }
 
         async void OnItemSelected(Item item)

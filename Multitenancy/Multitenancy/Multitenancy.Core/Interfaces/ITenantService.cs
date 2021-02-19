@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Multitenancy.Core.Interfaces
 {
-    public interface ISettingService
+    public interface ITenantService
     {
-        string ProjectId { get; }
-        string[] Features { get; }
+        bool ExistingFeature(string parameter);
     }
 }
