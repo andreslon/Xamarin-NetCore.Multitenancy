@@ -1,4 +1,4 @@
-﻿using Multitenancy.ViewModels;
+﻿using Multitenancy.Core.ViewModels;
 using System.ComponentModel;
 using Xamarin.Forms;
 

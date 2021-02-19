@@ -1,5 +1,5 @@
-﻿using Multitenancy.Models;
-using Multitenancy.ViewModels;
+﻿using Multitenancy.Core.Models;
+using Multitenancy.Core.ViewModels;
 using Multitenancy.Views;
 using System;
 using System.Collections.Generic;

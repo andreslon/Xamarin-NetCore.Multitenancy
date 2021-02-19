@@ -1,11 +1,11 @@
-﻿using Multitenancy.Models;
+﻿using Multitenancy.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace Multitenancy.ViewModels
+namespace Multitenancy.Core.ViewModels
 {
     public class NewItemViewModel : BaseViewModel
     {

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Multitenancy.Core.Interfaces
 {
-    public interface IDataStore<T>
+    public interface IDataRepository<T>
     {
         Task<bool> AddItemAsync(T item);
         Task<bool> UpdateItemAsync(T item);

@@ -1,17 +1,17 @@
 ﻿using Multitenancy.Core.Interfaces;
-using Multitenancy.Models;
+using Multitenancy.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Multitenancy.Services
+namespace Multitenancy.Core.Repositories
 {
-    public class MockDataStore : IDataStore<Item>
+    public class DataRepository : IDataRepository<Item>
     {
         readonly List<Item> items;
 
-        public MockDataStore()
+        public DataRepository()
         {
             items = new List<Item>()
             {
