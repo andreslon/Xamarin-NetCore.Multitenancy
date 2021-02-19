@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Multitenancy.Views.ItemsPage"
              Title="{Binding Title}"
-             xmlns:local="clr-namespace:Multitenancy.ViewModels"  
-             xmlns:model="clr-namespace:Multitenancy.Models"  
+             xmlns:local="clr-namespace:Multitenancy.Core.ViewModels;assembly=Multitenancy.Core"  
+             xmlns:model="clr-namespace:Multitenancy.Core.Models;assembly=Multitenancy.Core"  
              x:Name="BrowseItemsPage">
 
     <ContentPage.ToolbarItems>

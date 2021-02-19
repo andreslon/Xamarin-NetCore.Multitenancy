@@ -1,4 +1,5 @@
-﻿using Multitenancy.Services;
+﻿using Multitenancy.Core.Repositories;
+using Multitenancy.Services;
 using Multitenancy.Views;
 using System;
 using Xamarin.Forms;
@@ -13,7 +14,8 @@ namespace Multitenancy
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<DataRepository>();
+            DependencyService.Register<NavigationService>();
             MainPage = new AppShell();
         }
 

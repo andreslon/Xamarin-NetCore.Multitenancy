@@ -1,17 +1,17 @@
 ﻿using Multitenancy.Core.Interfaces;
-using Multitenancy.Models;
-using Multitenancy.Services;
+using Multitenancy.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
-namespace Multitenancy.ViewModels
+namespace Multitenancy.Core.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataRepository<Item> DataStore => DependencyService.Get<IDataRepository<Item>>();
+        public INavigationService NavigationService => DependencyService.Get<INavigationService>();
 
         bool isBusy = false;
         public bool IsBusy

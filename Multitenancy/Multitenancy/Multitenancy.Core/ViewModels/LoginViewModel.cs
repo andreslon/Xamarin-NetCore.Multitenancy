@@ -1,10 +1,6 @@
-﻿using Multitenancy.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
-namespace Multitenancy.ViewModels
+namespace Multitenancy.Core.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
@@ -18,7 +14,7 @@ namespace Multitenancy.ViewModels
         private async void OnLoginClicked(object obj)
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            await NavigationService.GoToAsync("AboutPage");
         }
     }
 }

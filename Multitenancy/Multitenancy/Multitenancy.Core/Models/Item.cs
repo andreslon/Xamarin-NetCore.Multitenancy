@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Multitenancy.Models
+namespace Multitenancy.Core.Models
 {
     public class Item
     {

@@ -1,12 +1,11 @@
-﻿using Multitenancy.Models;
-using Multitenancy.Views;
+﻿using Multitenancy.Core.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Multitenancy.ViewModels
+namespace Multitenancy.Core.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
@@ -69,7 +68,7 @@ namespace Multitenancy.ViewModels
 
         private async void OnAddItem(object obj)
         {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
+            await NavigationService.GoToAsync("NewItemPage");
         }
 
         async void OnItemSelected(Item item)
@@ -78,7 +77,7 @@ namespace Multitenancy.ViewModels
                 return;
 
             // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
+            await NavigationService.GoToAsync("ItemDetailPage", item.Id);
         }
     }
 }
