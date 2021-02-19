@@ -1,4 +1,5 @@
-﻿using Multitenancy.Models;
+﻿using Multitenancy.Core.Interfaces;
+using Multitenancy.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

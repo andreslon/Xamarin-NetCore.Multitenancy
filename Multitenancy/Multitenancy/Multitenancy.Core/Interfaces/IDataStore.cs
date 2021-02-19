@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Multitenancy.Services
+namespace Multitenancy.Core.Interfaces
 {
     public interface IDataStore<T>
     {
