@@ -15,6 +15,7 @@ namespace Multitenancy
             InitializeComponent();
 
             DependencyService.Register<DataRepository>();
+            DependencyService.Register<NavigationService>();
             MainPage = new AppShell();
         }
 
