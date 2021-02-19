@@ -1,4 +1,6 @@
-﻿using Multitenancy.Core.Models;
+﻿using Multitenancy.Core.Interfaces;
+using Multitenancy.Core.Models;
+using Prism.Navigation;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -7,8 +9,14 @@ using Xamarin.Forms;
 namespace Multitenancy.Core.ViewModels
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
-    public class ItemDetailViewModel : BaseViewModel
+    public class ItemDetailPageViewModel : ViewModelBase
     {
+        protected IDataRepository DataStore { get; private set; }
+        public ItemDetailPageViewModel(INavigationService navigationService, IDataRepository dataRepository)
+       : base(navigationService)
+        {
+            DataStore = dataRepository;
+        }
         private string itemId;
         private string text;
         private string description;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Multitenancy.Core.Repositories
 {
-    public class DataRepository : IDataRepository<Item>
+    public class DataRepository : IDataRepository
     {
         readonly List<Item> items;
 

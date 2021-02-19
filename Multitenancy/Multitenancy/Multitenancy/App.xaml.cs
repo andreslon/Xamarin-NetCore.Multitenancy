@@ -1,34 +1,48 @@
-﻿using Multitenancy.Core.Repositories;
-using Multitenancy.Services;
+﻿using Multitenancy.Core.Interfaces;
+using Multitenancy.Core.Repositories;
+using Multitenancy.Core.ViewModels;
 using Multitenancy.Views;
-using System;
+using Prism;
+using Prism.Ioc;
+using Xamarin.Essentials.Implementation;
+using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Multitenancy
 {
-    public partial class App : Application
+    public partial class App
     {
+        public App(IPlatformInitializer initializer): base(initializer)
+        {
+        }
 
-        public App()
+        protected override async void OnInitialized()
         {
             InitializeComponent();
 
-            DependencyService.Register<DataRepository>();
-            DependencyService.Register<NavigationService>();
-            MainPage = new AppShell();
+            await NavigationService.NavigateAsync("MainPage");
         }
 
-        protected override void OnStart()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-        }
+            containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
-        protected override void OnSleep()
-        {
-        }
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<AboutPage, AboutPageViewModel>();
+            containerRegistry.RegisterForNavigation<ItemsPage, ItemsPageViewModel>();
+            containerRegistry.RegisterForNavigation<ItemDetailPage, ItemDetailPageViewModel>();
+            containerRegistry.RegisterForNavigation<NewItemPage, NewItemPageViewModel>();
 
-        protected override void OnResume()
-        {
+            containerRegistry.Register<IDataRepository, DataRepository>(); 
         }
+        //public App()
+        //{
+        //    InitializeComponent();
+
+        //    DependencyService.Register<DataRepository>();
+        //    DependencyService.Register<NavigationService>();
+        //    MainPage = new AppShell();
+        //} 
     }
 }
