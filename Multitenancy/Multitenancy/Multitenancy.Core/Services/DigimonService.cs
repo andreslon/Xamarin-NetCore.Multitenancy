@@ -11,5 +11,6 @@ namespace Multitenancy.Core.Services
         {
 
         }
+        public override string Greeting => "Hi and welcome to Digimon App :*";
     }
 }

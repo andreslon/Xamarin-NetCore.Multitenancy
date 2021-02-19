@@ -7,5 +7,7 @@ namespace Multitenancy.Core.Interfaces
     public interface ITenantService
     {
         bool ExistingFeature(string parameter);
+
+        string Greeting { get; }
     }
 }
