@@ -15,9 +15,9 @@ namespace Multitenancy
 {
     public partial class App
     {
-        public App(IPlatformInitializer initializer) : base(initializer)
+        public App(IPlatformInitializer initializer) : base(initializer, setFormsDependencyResolver: true)
         {
-        }
+        } 
 
         protected override async void OnInitialized()
         {

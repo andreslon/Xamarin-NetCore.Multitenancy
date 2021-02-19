@@ -15,7 +15,6 @@ namespace Multitenancy.Views
         public NewItemPage()
         {
             InitializeComponent();
-            //BindingContext = new NewItemViewModel();
         }
     }
 }
