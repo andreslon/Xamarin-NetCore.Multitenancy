@@ -7,6 +7,14 @@
             x:Class="Multitenancy.Views.MainPage"
              Title="{Binding Title}">
 
-    <views:AboutPage Title="Home" IconImageSource="icon_about.png" />
-    <views:ItemsPage Title="List" IconImageSource="icon_feed.png" />
+    <views:ItemsPage
+        IsVisible="{Binding Converter={StaticResource FeatureToVisibleConverter}, 
+                    ConverterParameter=list}"        
+                    Title="List" IconImageSource="icon_feed.png" />
+
+    <views:AboutPage 
+        IsVisible="{Binding Converter={StaticResource FeatureToVisibleConverter}, 
+                    ConverterParameter=about}"
+        Title="About" IconImageSource="icon_about.png" />
+
 </TabbedPage>

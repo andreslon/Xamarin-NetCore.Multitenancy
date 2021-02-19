@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Xamarin.Forms;
 
 namespace Multitenancy.Views
@@ -8,6 +9,12 @@ namespace Multitenancy.Views
         public MainPage()
         {
             InitializeComponent();
+            AddTabs();
+        }
+
+        private void AddTabs()
+        {
+             
         }
     }
 }
