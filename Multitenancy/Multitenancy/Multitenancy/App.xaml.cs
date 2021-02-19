@@ -38,20 +38,21 @@ namespace Multitenancy
             containerRegistry.RegisterForNavigation<ItemDetailPage, ItemDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<NewItemPage, NewItemPageViewModel>();
 
-            containerRegistry.Register<IDataRepository, DataRepository>();
-
             var settings = ((PrismApplication)Application.Current).Container.Resolve<ISettingService>();
             string[] features = settings.Features;
             switch (settings.ProjectId)
             {
                 case "POKEMON":
                     containerRegistry.RegisterInstance<ITenantService>(new PokemonService(features));
+                    containerRegistry.Register<IDataRepository, PokemonDataRepository>();
                     break;
                 case "DIGIMON":
                     containerRegistry.RegisterInstance<ITenantService>(new DigimonService(features));
+                    containerRegistry.Register<IDataRepository, DataRepository>();
                     break;
                 default:
                     containerRegistry.RegisterInstance<ITenantService>(new TenantService(features));
+                    containerRegistry.Register<IDataRepository, DataRepository>();
                     break;
             }
             

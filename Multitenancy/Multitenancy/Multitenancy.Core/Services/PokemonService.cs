@@ -13,5 +13,7 @@ namespace Multitenancy.Core.Services
         {
 
         }
+
+        public override string Greeting => "You are my favorite POKEMON trainer";
     }
 }
