@@ -2,9 +2,14 @@
 <prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+             xmlns:converters="clr-namespace:Multitenancy.Converters"
+             xmlns:ioc="clr-namespace:Prism.Ioc;assembly=Prism.Forms"
              x:Class="Multitenancy.App">
     <Application.Resources>
         <ResourceDictionary>
+            <ioc:ContainerProvider x:TypeArguments="converters:FeatureToVisibleConverter"
+                                   x:Key="FeatureToVisibleConverter" />
+
             <Color x:Key="Primary">#e74c3c</Color>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>

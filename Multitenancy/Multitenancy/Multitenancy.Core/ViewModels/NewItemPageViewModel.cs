@@ -48,7 +48,7 @@ namespace Multitenancy.Core.ViewModels
         private async void OnCancel()
         {
             // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
+            await NavigationService.GoBackAsync();
         }
 
         private async void OnSave()
@@ -63,7 +63,7 @@ namespace Multitenancy.Core.ViewModels
             await DataStore.AddItemAsync(newItem);
 
             // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
+            await NavigationService.GoBackAsync();
         }
     }
 }
