@@ -42,7 +42,19 @@ namespace Multitenancy
 
             var settings = ((PrismApplication)Application.Current).Container.Resolve<ISettingService>();
             string[] features = settings.Features;
-            containerRegistry.RegisterInstance<ITenantService>(new PokemonService(features));
+            switch (settings.ProjectId)
+            {
+                case "POKEMON":
+                    containerRegistry.RegisterInstance<ITenantService>(new PokemonService(features));
+                    break;
+                case "DIGIMON":
+                    containerRegistry.RegisterInstance<ITenantService>(new DigimonService(features));
+                    break;
+                default:
+                    containerRegistry.RegisterInstance<ITenantService>(new TenantService(features));
+                    break;
+            }
+            
 
         }
     }

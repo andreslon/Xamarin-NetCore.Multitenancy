@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Multitenancy.Core.Services
 {
-    public class TenantService
+    public class TenantService: ITenantService
     {
         public string[] Features { get; set; }
         public TenantService(string[] features)
