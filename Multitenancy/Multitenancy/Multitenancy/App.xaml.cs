@@ -1,34 +1,45 @@
-﻿using Multitenancy.Core.Repositories;
-using Multitenancy.Services;
+﻿using Multitenancy.Core.ViewModels;
 using Multitenancy.Views;
-using System;
+using Prism;
+using Prism.Ioc;
+using Xamarin.Essentials.Implementation;
+using Xamarin.Essentials.Interfaces;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Multitenancy
 {
-    public partial class App : Application
+    public partial class App
     {
+        public App(IPlatformInitializer initializer): base(initializer)
+        {
+        }
 
-        public App()
+        protected override async void OnInitialized()
         {
             InitializeComponent();
 
-            DependencyService.Register<DataRepository>();
-            DependencyService.Register<NavigationService>();
-            MainPage = new AppShell();
+            await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
-        protected override void OnStart()
+        protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-        }
+            containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
-        protected override void OnSleep()
-        {
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            //containerRegistry.RegisterForNavigation<AboutPage, AboutViewModel>();
+            //containerRegistry.RegisterForNavigation<ItemsPage, ItemsViewModel>();
+            //containerRegistry.RegisterForNavigation<ItemDetailPage, ItemDetailViewModel>();
+            //containerRegistry.RegisterForNavigation<LoginPage, LoginViewModel>();
+            //containerRegistry.RegisterForNavigation<NewItemPage, NewItemViewModel>();
         }
+        //public App()
+        //{
+        //    InitializeComponent();
 
-        protected override void OnResume()
-        {
-        }
+        //    DependencyService.Register<DataRepository>();
+        //    DependencyService.Register<NavigationService>();
+        //    MainPage = new AppShell();
+        //} 
     }
 }

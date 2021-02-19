@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Multitenancy.Views.MainPage"
+             Title="{Binding Title}">
+
+    <ContentPage Title="Tab 1" IconImageSource="icon_about.png">
+        <StackLayout>
+            <Label Text="dasdasdasdasdas" />
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Tab 2" IconImageSource="icon_feed.png"/>
+    <ContentPage Title="Tab 3" IconImageSource="icon_feed.png"/>
+
+</TabbedPage>
