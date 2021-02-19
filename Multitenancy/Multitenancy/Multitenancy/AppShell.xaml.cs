@@ -1,4 +1,4 @@
-﻿using Multitenancy.ViewModels;
+﻿using Multitenancy.Core.ViewModels;
 using Multitenancy.Views;
 using System;
 using System.Collections.Generic;
