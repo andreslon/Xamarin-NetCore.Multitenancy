@@ -2,12 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Multitenancy.Views.AboutPage"
-             xmlns:vm="clr-namespace:Multitenancy.Core.ViewModels;assembly=Multitenancy.Core"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
              Title="{Binding Title}">
-    
-    <ContentPage.BindingContext>
-        <vm:AboutViewModel />
-    </ContentPage.BindingContext>
     
     <ContentPage.Resources>
         <ResourceDictionary>

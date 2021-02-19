@@ -1,4 +1,6 @@
-﻿using Prism.Commands;
+﻿using Multitenancy.Core.Interfaces;
+using Multitenancy.Core.Models;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
@@ -10,6 +12,7 @@ namespace Multitenancy.Core.ViewModels
     public class ViewModelBase : BindableBase, IInitialize, INavigationAware, IDestructible
     {
         protected INavigationService NavigationService { get; private set; }
+        
 
         private string _title;
         public string Title
@@ -17,7 +20,12 @@ namespace Multitenancy.Core.ViewModels
             get { return _title; }
             set { SetProperty(ref _title, value); }
         }
-
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set { SetProperty(ref _isBusy, value); }
+        }
         public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;

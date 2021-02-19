@@ -1,4 +1,6 @@
-﻿using Multitenancy.Core.Models;
+﻿using Multitenancy.Core.Interfaces;
+using Multitenancy.Core.Models;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,13 +9,15 @@ using Xamarin.Forms;
 
 namespace Multitenancy.Core.ViewModels
 {
-    public class NewItemViewModel : BaseViewModel
+    public class NewItemPageViewModel : ViewModelBase
     {
         private string text;
         private string description;
-
-        public NewItemViewModel()
+        protected IDataRepository DataStore { get; private set; }
+        public NewItemPageViewModel(INavigationService navigationService, IDataRepository dataRepository)
+        : base(navigationService)
         {
+            DataStore = dataRepository;
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
             this.PropertyChanged +=

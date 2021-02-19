@@ -1,4 +1,6 @@
-﻿using Multitenancy.Core.ViewModels;
+﻿using Multitenancy.Core.Interfaces;
+using Multitenancy.Core.Repositories;
+using Multitenancy.Core.ViewModels;
 using Multitenancy.Views;
 using Prism;
 using Prism.Ioc;
@@ -18,7 +20,7 @@ namespace Multitenancy
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -27,11 +29,12 @@ namespace Multitenancy
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
-            //containerRegistry.RegisterForNavigation<AboutPage, AboutViewModel>();
-            //containerRegistry.RegisterForNavigation<ItemsPage, ItemsViewModel>();
-            //containerRegistry.RegisterForNavigation<ItemDetailPage, ItemDetailViewModel>();
-            //containerRegistry.RegisterForNavigation<LoginPage, LoginViewModel>();
-            //containerRegistry.RegisterForNavigation<NewItemPage, NewItemViewModel>();
+            containerRegistry.RegisterForNavigation<AboutPage, AboutPageViewModel>();
+            containerRegistry.RegisterForNavigation<ItemsPage, ItemsPageViewModel>();
+            containerRegistry.RegisterForNavigation<ItemDetailPage, ItemDetailPageViewModel>();
+            containerRegistry.RegisterForNavigation<NewItemPage, NewItemPageViewModel>();
+
+            containerRegistry.Register<IDataRepository, DataRepository>(); 
         }
         //public App()
         //{
